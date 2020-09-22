@@ -1,6 +1,8 @@
 # The Graph - Syncronization Monitor
 
-This simple Python tools monitor the syncronization of a subgraph and predicts a target date for syncronization
+This simple Python tools monitor the syncronization of a subgraph and predicts a target date for syncronization.
+
+It works by polling The Graph every 10s for the indexing status of a subgraph.
 
 ## Installation
 
@@ -52,3 +54,5 @@ It displays key metrics:
 * Current Block being indexed
 * Indexing Speed in Block per second, as an average since the monitoring started
 * Target date to reach the requested block at the average indexing speed
+
+After a few minutes the average indexing speed is more stable and the target date should not change much. The script can be stopped at this point with `CONTROL`+`C`.

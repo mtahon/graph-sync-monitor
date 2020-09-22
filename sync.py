@@ -19,19 +19,22 @@ def get_block_number():
 start_time = datetime.now()
 start_block = get_block_number()
 current_block = start_block
+time.sleep(interval)
 
 while(current_block < target_block):
     # Get the new block and time
-    previous_block = current_block
     current_time = datetime.now()
     current_block = get_block_number()
 
-    # Skip 
-    if(previous_block >= current_block):
-        print("No Progress")
+    # If we are just starting and no progress, skip
+    if current_block == start_block:
         continue
+
+    # Compute the speed and remaining time
     speed = (current_block - start_block) / (current_time - start_time).seconds
     remaining = (target_block - current_block) / speed
     target_date = datetime.now() + timedelta(seconds=remaining)
-    print("Current Block: %i | Speed: %f b/s | Target: %s" % (current_block, speed, target_date))
+
+    # Display the stats
+    print("Last indexed block: %i | Speed: %f b/s | Target: %s" % (current_block, speed, target_date))
     time.sleep(interval)
