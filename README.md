@@ -42,11 +42,11 @@ Start the monitoring:
 
 ```shell
 $ python sync.py
-Current Block: 10527783 | Speed: 0.747518 b/s | Target: 2020-09-23 13:37:37.123809
-Current Block: 10527791 | Speed: 0.747765 b/s | Target: 2020-09-23 13:37:12.830740
-Current Block: 10527797 | Speed: 0.746723 b/s | Target: 2020-09-23 13:38:56.285456
-Current Block: 10527800 | Speed: 0.744641 b/s | Target: 2020-09-23 13:42:25.478459
-Current Block: 10527802 | Speed: 0.742115 b/s | Target: 2020-09-23 13:46:40.870269
+Last indexed block: 10527783 | Speed: 0.747518 b/s | Target: 2020-09-23 13:37:37.123809
+Last indexed block: 10527791 | Speed: 0.747765 b/s | Target: 2020-09-23 13:37:12.830740
+Last indexed block: 10527797 | Speed: 0.746723 b/s | Target: 2020-09-23 13:38:56.285456
+Last indexed block: 10527800 | Speed: 0.744641 b/s | Target: 2020-09-23 13:42:25.478459
+Last indexed block: 10527802 | Speed: 0.742115 b/s | Target: 2020-09-23 13:46:40.870269
 ```
 
 It displays key metrics:
