@@ -16,21 +16,26 @@ def get_block_number():
     return int(r.json()['data']['indexingStatusForCurrentVersion']['chains'][0]['latestBlock']['number'])
 
 # Define the start parameters
-start_time = datetime.now()
 start_block = get_block_number()
+start_time = datetime.now()
 current_block = start_block
 time.sleep(interval)
 
 while(current_block < target_block):
-    # Get the new block and time
-    current_time = datetime.now()
-    current_block = get_block_number()
+    # Get the latest indexed block
+    try:
+        current_block = get_block_number()
+    except requests.exceptions.ConnectionError:
+        print("Connection Error")
+        time.sleep(interval)
+        continue
 
     # If we are just starting and no progress, skip
     if current_block == start_block:
         continue
 
     # Compute the speed and remaining time
+    current_time = datetime.now()
     speed = (current_block - start_block) / (current_time - start_time).seconds
     remaining = (target_block - current_block) / speed
     target_date = datetime.now() + timedelta(seconds=remaining)
